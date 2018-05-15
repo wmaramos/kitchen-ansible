@@ -26,8 +26,6 @@ module Kitchen
             <<-INSTALL
 
             if [ ! $(which ansible) ]; then
-              #{sudo_env('zypper')} ar #{@config[:python_sles_repo]}
-              #{sudo_env('zypper')} ar #{@config[:ansible_sles_repo]}
               #{update_packages_command}
               #{sudo_env('zypper')} --non-interactive install ansible
             fi
